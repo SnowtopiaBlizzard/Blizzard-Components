@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using Blizzard.UI;
 
 namespace Blizzard.Entry
 {
@@ -6,7 +6,7 @@ namespace Blizzard.Entry
     {
         public Entry()
         {
-            Application.Quit();
+            new MainMenuUIHandler();
         }
     }
 }

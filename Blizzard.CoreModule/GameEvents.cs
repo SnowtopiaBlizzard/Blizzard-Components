@@ -30,14 +30,14 @@ namespace Blizzard.Events
         {
             if (scene.name.StartsWith(GAME_NAME))
             {
-                onMainMenuUnloaded?.Invoke();
+                onGameUnloaded?.Invoke();
                 return;
             }
 
             switch (scene.name)
             {
-                case GAME_NAME:
-                    onGameUnloaded?.Invoke();
+                case MAIN_MENU_NAME:
+                    onMainMenuUnloaded?.Invoke();
                     break;
                 case LOADING_NAME:
                     onLoadingUnloaded?.Invoke();
@@ -51,14 +51,14 @@ namespace Blizzard.Events
         {
             if (scene.name.StartsWith(GAME_NAME))
             {
-                onMainMenuLoaded?.Invoke();
+                onGameLoaded?.Invoke();
                 return;
             }
 
             switch (scene.name)
             {
-                case GAME_NAME:
-                    onGameLoaded?.Invoke();
+                case MAIN_MENU_NAME:
+                    onMainMenuLoaded?.Invoke();
                     break;
                 case LOADING_NAME:
                     onLoadingLoaded?.Invoke();

@@ -1,41 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F9D5EE34-268D-4DB0-A9F3-97FC960B29C4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Blizzard.Entry</RootNamespace>
-    <AssemblyName>Blizzard.Entry</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Include="Entry.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Accessibility" />
+    <Reference Include="Accessibility">
+      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Accessibility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -44,79 +17,18 @@
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ConsoleProDebug">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\ConsoleProDebug.dll</HintPath>
+    <Reference Include="System">
+      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\System.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ConsoleProRemote">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\ConsoleProRemote.dll</HintPath>
+    <Reference Include="System.Core">
+      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\System.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\DOTween.dll</HintPath>
+    <Reference Include="System.Runtime">
+      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\System.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Facepunch.Steamworks.Win64">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Data.Sqlite">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Mono.Data.Sqlite.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Posix">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Mono.Posix.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Security">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Mono.Security.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.WebBrowser">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Mono.WebBrowser.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="netstandard" />
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Novell.Directory.Ldap">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Novell.Directory.Ldap.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Ookii.Dialogs">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Ookii.Dialogs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ShapesRuntime">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\ShapesRuntime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Sirenix.OdinInspector.Attributes.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.CompatibilityLayer">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Sirenix.OdinInspector.CompatibilityLayer.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Serialization">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Sirenix.Serialization.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Serialization.Config">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Sirenix.Serialization.Config.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Sirenix.Utilities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Unity.Analytics.DataPrivacy.dll</HintPath>
       <Private>False</Private>
@@ -442,11 +354,5 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Blizzard.CoreModule\Blizzard.CoreModule.csproj">
-      <Project>{c2d5d835-c575-4b9c-99dc-ff8f09b1a8b0}</Project>
-      <Name>Blizzard.CoreModule</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

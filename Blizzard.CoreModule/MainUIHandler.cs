@@ -1,5 +1,6 @@
 ﻿using Blizzard.Events;
 using Blizzard.Helpers;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,13 +19,14 @@ namespace Blizzard.UI
         #region
         private void OnLoadingScreenLoaded()
         {
-            ChangeLoadingScreenText("Blizzard...");
+            ChangeLoadingScreenText(BlizzardData.IS_BETA ? "Loading Blizzard Beta..." : "Loading Blizzard...");
         }
 
         public void ChangeLoadingScreenText(string text)
         {
             GameObject loadingTextObject = GameObject.Find("SceneLoader/LoadingCanvas/Loading/Bottom/Text");
-            loadingTextObject.GetComponent<TextMeshProUGUI>().text = text;
+            TextMeshProUGUI loadingTextComponent = loadingTextObject.GetComponent<TextMeshProUGUI>();
+            loadingTextComponent.text = text;
         } 
         #endregion
 
@@ -33,17 +35,30 @@ namespace Blizzard.UI
         #region
         private void OnMainMenuLoaded()
         {
-            GameObject version1GameObject = GameObject.Find("MainMenuCanvas/Main menu/Version");
-            version1GameObject.GetComponent<TMPro.TextMeshProUGUI>().text = BlizzardData.VERSION_TEXT;
-            Object.Destroy(version1GameObject.GetComponent<VersionWidget>());
-            version1GameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(400, 0);
-
-            GameObject version2GameObject = GameObject.Find("MainMenuCanvas/Main menu/Version (1)");
-            version2GameObject.GetComponent<TMPro.TextMeshProUGUI>().text = BlizzardData.VERSION_TEXT;
-            Object.Destroy(version2GameObject.GetComponent<VersionWidget>());
-            version2GameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(400, 0);
+            LoadVersionText("Version");
+            LoadVersionText("Version (1)");
 
             LoadBackgroundImage(GameObject.Find("MainMenuCanvas/Main menu - Background/Background"));
+            LoadIconImage();
+        }
+
+        private void LoadVersionText(string versionName)
+        {
+            GameObject versionObject = GameObject.Find($"MainMenuCanvas/Main menu/{versionName}");
+            versionObject.GetComponent<TextMeshProUGUI>().text = BlizzardData.VERSION_TEXT;
+            UnityEngine.Object.Destroy(versionObject.GetComponent<VersionWidget>());
+            versionObject.GetComponent<RectTransform>().sizeDelta += new Vector2(400, 0);
+        }
+
+        private void LoadIconImage()
+        {
+            GameObject iconImage = GameObject.Find("MainMenuCanvas/Main menu/Left/Logo/Icon");
+            Image iconImageComponent = iconImage.GetComponent<Image>();
+
+            string assetBundle = BlizzardData.IS_BETA ? BundleHelper.AssetBetaBundlePath + "blizzard.beta" : BundleHelper.AssetBundlePath + "blizzard_content";
+            string imageAssetName = BlizzardData.IS_BETA ? "blizzard_beta_logo" : "blizzard_logo"; 
+
+            iconImageComponent.sprite = BundleHelper.LoadIfNotLoaded(assetBundle).LoadAsset<Sprite>(imageAssetName);
         }
 
         private void LoadBackgroundImage(GameObject mainMenuCanvas)

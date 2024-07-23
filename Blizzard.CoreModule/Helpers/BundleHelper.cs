@@ -22,5 +22,6 @@ namespace Blizzard.Helpers
 		public static Dictionary<string, AssetBundle> bundles = new Dictionary<string, AssetBundle>();
 
 		public static string AssetBundlePath = "Blizzard/Content/";
+		public static string AssetBetaBundlePath = AssetBundlePath + "BetaContent/";
 	}
 }

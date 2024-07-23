@@ -355,8 +355,4 @@
     </Reference>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;%25SNOWTOPIA%25/Blizzard/Assemblies&quot; /y" />
-  </Target>
-
 </Project>

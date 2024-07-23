@@ -10,7 +10,7 @@ namespace Blizzard
         public const string GAME_VERSION = "1.0.6";
         public const string VERSION_TEXT = "v"+GAME_VERSION + " Blizzard-" + VERSION;
 
-        public const bool DEBUG_MODE = false;
+        public const bool DEBUG_MODE = true;
 
         public static bool IS_BETA { get { return DEBUG_MODE; } }
 

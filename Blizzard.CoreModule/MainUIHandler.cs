@@ -35,14 +35,25 @@ namespace Blizzard.UI
         #region
         private void OnMainMenuLoaded()
         {
-            LoadVersionText("Version");
-            LoadVersionText("Version (1)");
+            CreateBlizzardMenu();
+            
+            SetVersionText("Version");
+            SetVersionText("Version (1)");
 
-            LoadBackgroundImage(GameObject.Find("MainMenuCanvas/Main menu - Background/Background"));
-            LoadIconImage();
+            SetBackgroundImage(GameObject.Find("MainMenuCanvas/Main menu - Background/Background"));
+            SetIconImage();
         }
 
-        private void LoadVersionText(string versionName)
+        private void CreateBlizzardMenu()
+        {
+            GameObject settingsButton = GameObject.Find("MainMenuCanvas/Main menu/Left/Menu/Button - Settings");
+            GameObject blizzardButton = UnityEngine.Object.Instantiate(settingsButton, settingsButton.transform.parent);
+            blizzardButton.name = "Button - Blizzard";
+            blizzardButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Blizzard";
+            blizzardButton.transform.SetSiblingIndex(2);
+        }
+
+        private void SetVersionText(string versionName)
         {
             GameObject versionObject = GameObject.Find($"MainMenuCanvas/Main menu/{versionName}");
             versionObject.GetComponent<TextMeshProUGUI>().text = BlizzardData.VERSION_TEXT;
@@ -50,7 +61,7 @@ namespace Blizzard.UI
             versionObject.GetComponent<RectTransform>().sizeDelta += new Vector2(400, 0);
         }
 
-        private void LoadIconImage()
+        private void SetIconImage()
         {
             GameObject iconImage = GameObject.Find("MainMenuCanvas/Main menu/Left/Logo/Icon");
             Image iconImageComponent = iconImage.GetComponent<Image>();
@@ -61,7 +72,7 @@ namespace Blizzard.UI
             iconImageComponent.sprite = BundleHelper.LoadIfNotLoaded(assetBundle).LoadAsset<Sprite>(imageAssetName);
         }
 
-        private void LoadBackgroundImage(GameObject mainMenuCanvas)
+        private void SetBackgroundImage(GameObject mainMenuCanvas)
         {
             AssetBundle blizzardBundle = BundleHelper.LoadIfNotLoaded(BundleHelper.AssetBundlePath + "blizzard_content");
             if (blizzardBundle == null)

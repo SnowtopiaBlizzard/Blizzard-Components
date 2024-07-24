@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Blizzard.Entry")]
-[assembly: AssemblyDescription("Entry for Blizzard SNowtopia")]
+[assembly: AssemblyTitle("Blizzard.Standalone")]
+[assembly: AssemblyDescription("Updater for Blizzard Snowtopia")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Blizzard.Entry")]
+[assembly: AssemblyProduct("Blizzard.Standalone")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

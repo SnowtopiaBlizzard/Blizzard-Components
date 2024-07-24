@@ -7,8 +7,8 @@
     <ProjectGuid>{F9D5EE34-268D-4DB0-A9F3-97FC960B29C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Blizzard.Entry</RootNamespace>
-    <AssemblyName>Blizzard.Entry</AssemblyName>
+    <RootNamespace>Blizzard.Standalone</RootNamespace>
+    <AssemblyName>Blizzard.Standalone</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,7 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Entry.cs" />
+    <Compile Include="BlizzardInstaller.cs" />
+    <Compile Include="BlizzardPatcher.cs" />
+    <Compile Include="BlizzardStandalone.cs" />
+    <Compile Include="BlizzardStandaloneData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,9 +81,7 @@
     </Reference>
     <Reference Include="netstandard" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Novell.Directory.Ldap">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Novell.Directory.Ldap.dll</HintPath>
@@ -114,9 +115,13 @@
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Sirenix.Utilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Unity.Analytics.DataPrivacy.dll</HintPath>
       <Private>False</Private>
@@ -443,10 +448,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Blizzard.CoreModule\Blizzard.CoreModule.csproj">
-      <Project>{c2d5d835-c575-4b9c-99dc-ff8f09b1a8b0}</Project>
-      <Name>Blizzard.CoreModule</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetFileName)" "%25SNOWTOPIA%25/Blizzard/Assemblies" /y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

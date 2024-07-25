@@ -1,8 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blizzard.Maps\Blizzard.Maps.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Accessibility">
@@ -16,6 +20,9 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Sirenix.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\System.dll</HintPath>

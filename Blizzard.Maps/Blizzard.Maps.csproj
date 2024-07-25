@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>$(SNOWTOPIA)\Blizzard\Assemblies\0Harmony.dll</HintPath>
-    </Reference>
     <Reference Include="Accessibility">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Accessibility.dll</HintPath>
       <Private>False</Private>

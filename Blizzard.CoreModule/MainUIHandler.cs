@@ -1,6 +1,7 @@
 ﻿using Blizzard.Events;
 using Blizzard.Helpers;
 using System;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +27,7 @@ namespace Blizzard.UI
         {
             GameObject loadingTextObject = GameObject.Find("SceneLoader/LoadingCanvas/Loading/Bottom/Text");
             TextMeshProUGUI loadingTextComponent = loadingTextObject.GetComponent<TextMeshProUGUI>();
-            loadingTextComponent.text = text;
+            loadingTextComponent.text = text; 
         } 
         #endregion
 
@@ -51,6 +52,14 @@ namespace Blizzard.UI
             blizzardButton.name = "Button - Blizzard";
             blizzardButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Blizzard";
             blizzardButton.transform.SetSiblingIndex(2);
+
+            Button buttonObject = blizzardButton.GetComponent<Button>();
+            buttonObject.onClick.AddListener(() => {
+                Process.Start(new ProcessStartInfo {
+                    FileName = "https://bamsestudio.dk/api/snowtopia/register",
+                    UseShellExecute = true,
+                });
+            });
         }
 
         private void SetVersionText(string versionName)
@@ -77,7 +86,6 @@ namespace Blizzard.UI
             AssetBundle blizzardBundle = BundleHelper.LoadIfNotLoaded(BundleHelper.AssetBundlePath + "blizzard_content");
             if (blizzardBundle == null)
             {
-                Debug.LogError("Blizzard asset bundle not found");
                 return;
             }
 
@@ -85,10 +93,6 @@ namespace Blizzard.UI
             if (imageComponent != null)
             {
                 imageComponent.sprite = blizzardBundle.LoadAsset<Sprite>("blizzard_background");
-            }
-            else
-            {
-                Debug.LogError("Image component not found on background image object");
             }
         }
         #endregion

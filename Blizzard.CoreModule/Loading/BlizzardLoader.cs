@@ -8,8 +8,8 @@ namespace Blizzard.Loading
     public class BlizzardLoader
     {
         private readonly List<string> loadingStrings = new List<string> {
-            "Enjoying Tea",
             "Watching the Avalanche",
+            "Enjoying Tea",
             "Looking at the Blizzard",
             "Hugging Bamsen",
             "Mapping Mappers",

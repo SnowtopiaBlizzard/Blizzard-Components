@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blizzard.CoreModule", "Bliz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blizzard.Maps", "Blizzard.Maps\Blizzard.Maps.csproj", "{B285E00B-7E14-4D95-9A00-97184482CE4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blizzard.Common", "Blizzard.Common\Blizzard.Common.csproj", "{CC3C3E19-3C39-4A99-B0C1-6F08853E2DAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B285E00B-7E14-4D95-9A00-97184482CE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B285E00B-7E14-4D95-9A00-97184482CE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B285E00B-7E14-4D95-9A00-97184482CE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3C3E19-3C39-4A99-B0C1-6F08853E2DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3C3E19-3C39-4A99-B0C1-6F08853E2DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3C3E19-3C39-4A99-B0C1-6F08853E2DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3C3E19-3C39-4A99-B0C1-6F08853E2DAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

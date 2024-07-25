@@ -1,11 +1,9 @@
-﻿using Blizzard.Economy;
+﻿using Blizzard.BlizzardMenu;
+using Blizzard.Economy;
 using Blizzard.Events;
 using Blizzard.Loading;
 using Blizzard.Maps;
 using Blizzard.UI;
-using System.IO;
-using System.Linq;
-using UnityEngine;
 
 namespace Blizzard
 {
@@ -20,6 +18,7 @@ namespace Blizzard
             GameEvents.onGameLoaded += onGameLoaded;
 
             HiddenMapLoader.Init();
+            BlizzardMenuController.Init();
 
             MainUIHandler = new MainUIHandler();
             new BlizzardLoader();

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Blizzard.Helpers;
+using System;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Blizzard.Events
@@ -62,6 +65,7 @@ namespace Blizzard.Events
                     break;
                 case LOADING_NAME:
                     onLoadingLoaded?.Invoke();
+                    BundleHelper.defaultFontAsset = GameObject.Find("SceneLoader/LoadingCanvas/Loading/Bottom/Text").GetComponent<TextMeshProUGUI>().font;
                     break;
                 default:
                     break;

@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blizzard.Common\Blizzard.Common.csproj" />
-    <ProjectReference Include="..\Blizzard.Maps\Blizzard.Maps.csproj" />
+    <None Remove="Helpers\BundleHelper.cs~RF304e796.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -366,5 +366,5 @@
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;%25SNOWTOPIA%25/Blizzard/Assemblies&quot; /y" />
   </Target>
-
+  
 </Project>

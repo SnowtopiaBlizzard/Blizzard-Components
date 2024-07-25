@@ -26,5 +26,18 @@ namespace Blizzard
                 return betaBundle;
             }
         }
+
+        private static AssetBundle contentBundle;
+        public static AssetBundle CONTENT_ASSET_BUNDLE
+        {
+            get
+            {
+                if (contentBundle == null)
+                {
+                    contentBundle = BundleHelper.LoadIfNotLoaded(BundleHelper.AssetBundlePath + "blizzard_content");
+                }
+                return contentBundle;
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Blizzard.Events;
+﻿using Blizzard.BlizzardMenu;
+using Blizzard.Events;
 using Blizzard.Helpers;
 using System;
 using System.Diagnostics;
@@ -53,12 +54,17 @@ namespace Blizzard.UI
             blizzardButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Blizzard";
             blizzardButton.transform.SetSiblingIndex(2);
 
-            Button buttonObject = blizzardButton.GetComponent<Button>();
-            buttonObject.onClick.AddListener(() => {
-                Process.Start(new ProcessStartInfo {
+            /*
+             Process.Start(new ProcessStartInfo {
                     FileName = "https://bamsestudio.dk/api/snowtopia/register",
                     UseShellExecute = true,
                 });
+             */
+
+            Button buttonObject = blizzardButton.GetComponent<Button>();
+            buttonObject.onClick.AddListener(() => {
+                blizzardButton.GetComponent<UIModuleToolbox>().Back();
+                BlizzardMenuController.Toggle();
             });
         }
 

@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blizzard.Common\Blizzard.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Accessibility">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Accessibility.dll</HintPath>
       <Private>False</Private>

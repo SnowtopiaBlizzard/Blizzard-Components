@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Accessibility">
       <HintPath>$(SNOWTOPIA)\Snowtopia_Data\Managed\Accessibility.dll</HintPath>
       <Private>False</Private>

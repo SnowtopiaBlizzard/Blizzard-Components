@@ -33,7 +33,7 @@ namespace Blizzard.Helpers
 		public static string AssetBundlePath = "Blizzard/Content/";
 		public static string AssetBetaBundlePath = AssetBundlePath + "BetaContent/";
 
-#pragma warning disable 
+#pragma warning disable
 		public static TMP_FontAsset defaultFontAsset;
 #pragma warning restore
 	}

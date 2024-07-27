@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Blizzard.User
 {
@@ -10,7 +11,7 @@ namespace Blizzard.User
         public static DiscordUser user;
 
         // Path to the token file stored in the user's Application Data folder
-        private static readonly string TokenFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "blizzard.token");
+        public static readonly string TokenFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "blizzard.token");
 
         /// <summary>
         /// Updates the user information by retrieving the latest data from the API.
@@ -45,7 +46,7 @@ namespace Blizzard.User
             if (File.Exists(TokenFilePath))
             {
                 // Read and clean the token from the file
-                string token = await File.ReadAllTextAsync(TokenFilePath);
+                string token = File.ReadAllText(TokenFilePath);
                 token = token.Replace("blizzardtoken://", "").Replace("/", "");
 
                 // Validate the token with the API
@@ -55,7 +56,7 @@ namespace Blizzard.User
                 {
                     // Delete the token file if the token is invalid
                     File.Delete(TokenFilePath);
-                    return null;
+                    return null;    
                 }
 
                 // Return the valid token

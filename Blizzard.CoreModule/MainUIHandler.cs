@@ -54,13 +54,6 @@ namespace Blizzard.UI
             blizzardButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Blizzard";
             blizzardButton.transform.SetSiblingIndex(2);
 
-            /*
-             Process.Start(new ProcessStartInfo {
-                    FileName = "https://bamsestudio.dk/api/snowtopia/register",
-                    UseShellExecute = true,
-                });
-             */
-
             Button buttonObject = blizzardButton.GetComponent<Button>();
             buttonObject.onClick.AddListener(() => {
                 blizzardButton.GetComponent<UIModuleToolbox>().Back();

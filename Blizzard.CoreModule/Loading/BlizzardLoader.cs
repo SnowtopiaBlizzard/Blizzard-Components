@@ -9,8 +9,8 @@ namespace Blizzard.Loading
     {
         private readonly List<string> loadingStrings = new List<string> {
             "Watching the Avalanche",
-            "Enjoying Tea",
             "Looking at the Blizzard",
+            "Enjoying Tea",
             "Hugging Bamsen",
             "Mapping Mappers",
             "Eating Cheese",

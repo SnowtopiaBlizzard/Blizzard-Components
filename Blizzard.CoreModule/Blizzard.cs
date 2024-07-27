@@ -4,6 +4,7 @@ using Blizzard.Events;
 using Blizzard.Loading;
 using Blizzard.Maps;
 using Blizzard.UI;
+using Blizzard.User;
 
 namespace Blizzard
 {
@@ -13,15 +14,21 @@ namespace Blizzard
 
         public static EconomyModule EconomyModule;
 
-        public static void Init()
+        public static async void Init()
         {
             GameEvents.onGameLoaded += onGameLoaded;
-
+            GameEvents.onMainMenuLoaded += onMainMenuLoaded;
+            
             HiddenMapLoader.Init();
-            BlizzardMenuController.Init();
+            await UserHandler.UpdateUserAsync();
 
             MainUIHandler = new MainUIHandler();
             new BlizzardLoader();
+        }
+
+        private static void onMainMenuLoaded()
+        {
+            BlizzardMenuController.Init();
         }
 
         private static void onGameLoaded()
